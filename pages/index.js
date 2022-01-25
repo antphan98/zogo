@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
 import RepoList from '../components/RepoList';
 import styles from '../styles/Home.module.css';
+import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
+
+const override = css`
+position: absolute;
+top: 50%;
+left: 50%;
+border-color: pink;
+`;
 
 
 const WORDPRESS_API_GITHUB_USER_URL = "https://zogo-7a8a1d.ingress-erytho.easywp.com/wp-json/wp/v2/pages/2";
@@ -28,7 +36,7 @@ export default function Home() {
       })
   }, [])
 
-  if (isLoading) return <ClipLoader loading={isLoading} size={150} />
+  if (isLoading) return <ClipLoader css={override} loading={isLoading} size={150} />
 
   if (!githubUser) return <p>No User data</p>
 
@@ -36,13 +44,14 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className="header">
+      <h1>Hi! I'm {githubUser.name}</h1>
+
+      <img className="userimg" src={githubUser.avatar_url} />
       <button onClick={() => setActiveTab('overview')}>Overview</button>
       <button onClick={() => setActiveTab('repolist')}>Repos</button>
-
         {activeTab === 'overview' &&
           <>
-            <h1>{githubUser.login}</h1>
-            <img className="userimg" src={githubUser.avatar_url} />
+            <h4>{githubUser.login}</h4>
             <p>{githubUser.location}</p>
             <p>{githubUser.bio}</p>
 
@@ -50,6 +59,8 @@ export default function Home() {
         {activeTab === 'repolist' &&
           <RepoList username={githubUser.login} />
         }
+
+    
 
       </div>
     </div>

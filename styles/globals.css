@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: CerebriSans-Bold,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
-
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: pink;
 }
 
 a {
@@ -11,7 +11,7 @@ a {
   text-decoration: none;
 }
 
-h2 {
+h4 {
 
   color: #333;
   font-size: 2.5em;
@@ -20,6 +20,33 @@ h2 {
   text-align: center;
   
 }
+
+button {
+
+  background-color: #EA4C90;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 10px;
+  outline: none;
+  padding: 10px 16px;
+
+}
+
+.header {
+  background-color: white;
+  margin: 50px;
+  padding: 100px;
+}
+
 
 .userimg {
   border-radius: 50%;
@@ -30,6 +57,19 @@ h2 {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
+/* RepoList Styles */
+
+.repo {
+  margin: 25px 0;
+  transition: 0.5s;
+  padding: 30px;
+
+}
+
+.repo:hover {
+  background-color: rgb(222, 218, 218);
+  cursor: pointer;
+}
 
 * {
   box-sizing: border-box;
