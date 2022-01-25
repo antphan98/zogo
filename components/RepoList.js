@@ -41,12 +41,12 @@ export default function RepoList(props) {
             <div className="repolist">
                 {orderedList.map((repo) => (
                     <a href={repo.html_url}>
-                    <div className="repo" key={repo.id}>
-                        <h2>{repo.name}</h2>
-                        <p>{repo.description}</p>
-                        <p><img className="star" src={star.src} width="20"/> {repo.stargazers_count}</p>
+                        <div className="repo" key={repo.id}>
+                            <h2>{repo.name}</h2>
+                            <p>{repo.description}</p>
+                            <p><img className="star" src={star.src} width="20" /> {repo.stargazers_count}</p>
 
-                    </div>
+                        </div>
                     </a>
 
                 ))}

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import RepoList from '../components/RepoList';
 import Head from 'next/head'
-import styles from '../styles/Home.module.css';
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -44,36 +43,36 @@ export default function Home() {
   console.log(githubUser);
   return (
     <>
-    <Head>
-      <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet"></link>
-    </Head>
-    <div>
-      <div className="header">
-        <img className="userimg" src={githubUser.avatar_url} />
-        <h1>{githubUser.name}</h1>
-        <div className="main-info">
-              <h4>{githubUser.login}</h4> 
+      <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet"></link>
+      </Head>
+      <div>
+        <div className="header">
+          <img className="userimg" src={githubUser.avatar_url} />
+          <h1>{githubUser.name}</h1>
+          <div className="main-info">
+            <h4>{githubUser.login}</h4>
               |
               <h4>{githubUser.location}</h4>
-              </div>
-        <div className="btngroup">
-          <button onClick={() => setActiveTab('overview')}>Overview</button>
-          <button onClick={() => setActiveTab('repolist')}>Repositories</button>
-        </div>
-        {activeTab === 'overview' &&
-          <>
-            <div className="card">
-          
-              <h2>About</h2>
-              <p>{githubUser.bio}</p>
-            </div>
-          </>}
-        {activeTab === 'repolist' &&
-          <RepoList username={githubUser.login} />
-        }
+          </div>
+          <div className="btngroup">
+            <button onClick={() => setActiveTab('overview')}>Overview</button>
+            <button onClick={() => setActiveTab('repolist')}>Repositories</button>
+          </div>
+          {activeTab === 'overview' &&
+            <>
+              <div className="card">
 
+                <h2>About</h2>
+                <p>{githubUser.bio}</p>
+              </div>
+            </>}
+          {activeTab === 'repolist' &&
+            <RepoList username={githubUser.login} />
+          }
+
+        </div>
       </div>
-    </div>
     </>
   )
 }
