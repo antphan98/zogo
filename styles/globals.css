@@ -110,3 +110,48 @@ button {
 * {
   box-sizing: border-box;
 }
+
+@media only screen and (max-width: 768px) {
+  .card {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .repo {
+    padding: 10px;
+    margin: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  h1 {
+    font-size: 2.3em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h4 {
+    font-size: 1.5em;
+  }
+  p {
+    font-size: 1.3em;
+  }
+  .header {
+    margin: 20px;
+    padding: 30px;
+  }
+
+  .card {
+    margin: 10px;
+  }
+
+  .repo {
+    margin: 10px;
+    padding: 0 5px;
+  }
+
+  .star {
+    margin-top: 10px;
+  }
+}
