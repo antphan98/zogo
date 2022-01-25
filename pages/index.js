@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import RepoList from '../components/RepoList';
+import Head from 'next/head'
 import styles from '../styles/Home.module.css';
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -42,27 +43,33 @@ export default function Home() {
 
   console.log(githubUser);
   return (
+    <>
+    <Head>
+      <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet"></link>
+    </Head>
     <div className={styles.container}>
       <div className="header">
-      <h1>Hi! I'm {githubUser.name}</h1>
+        <img className="userimg" src={githubUser.avatar_url} />
+        <h1>{githubUser.name}</h1>
 
-      <img className="userimg" src={githubUser.avatar_url} />
-      <button onClick={() => setActiveTab('overview')}>Overview</button>
-      <button onClick={() => setActiveTab('repolist')}>Repos</button>
+        <div className="btngroup">
+          <button onClick={() => setActiveTab('overview')}>Overview</button>
+          <button onClick={() => setActiveTab('repolist')}>Repos</button>
+        </div>
         {activeTab === 'overview' &&
           <>
-            <h4>{githubUser.login}</h4>
-            <p>{githubUser.location}</p>
-            <p>{githubUser.bio}</p>
-
+            <div className="card">
+              <h4>{githubUser.login}</h4>
+              <p>Location: {githubUser.location}</p>
+              <p>About: {githubUser.bio}</p>
+            </div>
           </>}
         {activeTab === 'repolist' &&
           <RepoList username={githubUser.login} />
         }
 
-    
-
       </div>
     </div>
+    </>
   )
 }

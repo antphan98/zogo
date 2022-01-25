@@ -2,13 +2,17 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Dongle', sans-serif;
   background-color: pink;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1 {
+  text-align: center;
 }
 
 h4 {
@@ -21,30 +25,43 @@ h4 {
   
 }
 
+p {
+  font-size: 25px;
+}
+
 button {
 
   background-color: #EA4C90;
   border-radius: 8px;
   border-style: none;
-  box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 500;
-  height: 40px;
+  font-family: 'Dongle', sans-serif;
   line-height: 20px;
-  list-style: none;
   margin: 10px;
-  outline: none;
   padding: 10px 16px;
 
+}
+
+.btngroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
   background-color: white;
   margin: 50px;
   padding: 100px;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.card {
+  background-color: rgb(235, 232, 232);
+  padding: 30px;
 }
 
 
