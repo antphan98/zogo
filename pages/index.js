@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import RepoList from '../components/RepoList';
 import styles from '../styles/Home.module.css'
 
 const WORDPRESS_API_GITHUB_USER_URL = "https://zogo-7a8a1d.ingress-erytho.easywp.com/wp-json/wp/v2/pages/2";
@@ -30,8 +31,14 @@ export default function Home() {
   console.log(githubUser);
   return (
     <div className={styles.container}>
+      <div className="header">
       <h1>{githubUser.login}</h1>
+      <img src={githubUser.avatar_url}/>
       <p>{githubUser.location}</p>
+
+      <RepoList username={githubUser.login} />
+
+      </div>
     </div>
   )
 }
