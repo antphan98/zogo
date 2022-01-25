@@ -13,20 +13,28 @@ a {
 
 h1 {
   text-align: center;
+  font-size: 3em;
+  height: 5px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5em;
 }
 
 h4 {
-
   color: #333;
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: 400;
-  margin-bottom: 0;
+  margin: 10px;
   text-align: center;
   
 }
 
 p {
-  font-size: 25px;
+  font-size: 1.8em;
+  text-align: center;
+  margin-top: -20px;
 }
 
 button {
@@ -53,15 +61,25 @@ button {
 
 .header {
   background-color: white;
-  margin: 50px;
-  padding: 100px;
+  margin: 50px 50px;
+  padding: 70px 80px;
   border-radius: 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .card {
   background-color: rgb(235, 232, 232);
-  padding: 30px;
+  padding: 30px 20px;
+  margin: 10px 100px;
+  border-radius: 20px;
+
+}
+
+.main-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -77,9 +95,10 @@ button {
 /* RepoList Styles */
 
 .repo {
-  margin: 25px 0;
+  margin: 10px 100px;
   transition: 0.5s;
-  padding: 30px;
+  padding: 10px;
+
 
 }
 

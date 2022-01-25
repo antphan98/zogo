@@ -47,21 +47,25 @@ export default function Home() {
     <Head>
       <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet"></link>
     </Head>
-    <div className={styles.container}>
+    <div>
       <div className="header">
         <img className="userimg" src={githubUser.avatar_url} />
         <h1>{githubUser.name}</h1>
-
+        <div className="main-info">
+              <h4>{githubUser.login}</h4> 
+              |
+              <h4>{githubUser.location}</h4>
+              </div>
         <div className="btngroup">
           <button onClick={() => setActiveTab('overview')}>Overview</button>
-          <button onClick={() => setActiveTab('repolist')}>Repos</button>
+          <button onClick={() => setActiveTab('repolist')}>Repositories</button>
         </div>
         {activeTab === 'overview' &&
           <>
             <div className="card">
-              <h4>{githubUser.login}</h4>
-              <p>Location: {githubUser.location}</p>
-              <p>About: {githubUser.bio}</p>
+          
+              <h2>About</h2>
+              <p>{githubUser.bio}</p>
             </div>
           </>}
         {activeTab === 'repolist' &&
