@@ -1,5 +1,7 @@
 # Zogo Assessment
 
+Deployed with Vercel: https://zogo.vercel.app/
+
 GitHub profile assessment using Next.js and WordPress. It has two tabs to toggle between an overview of the profile and repositories. Using WordPress, enter in a GitHub username and the website will load their information.
 
 ## Running locally in development mode
