@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
+import { css } from '@emotion/react';
+import ClipLoader from 'react-spinners/ClipLoader';
 import RepoList from '../components/RepoList';
-import Head from 'next/head'
-import { css } from "@emotion/react";
-import ClipLoader from "react-spinners/ClipLoader";
 
 const override = css`
 position: absolute;
@@ -11,36 +11,31 @@ left: 50%;
 border-color: pink;
 `;
 
-
 const WORDPRESS_API_GITHUB_USER_URL = "https://zogo-7a8a1d.ingress-erytho.easywp.com/wp-json/wp/v2/pages/2";
 
 export default function Home() {
 
-  const [githubUser, setGithubUser] = useState(null)
-  const [isLoading, setLoading] = useState(false)
-  const [activeTab, setActiveTab] = useState('overview')
+  const [githubUser, setGithubUser] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch(WORDPRESS_API_GITHUB_USER_URL)
       .then((res) => res.json())
       .then((wpData) => {
-
         fetch(`https://api.github.com/users/${wpData.acf.user}`)
           .then((res) => res.json())
           .then((ghData) => {
-            setGithubUser(ghData)
-            setLoading(false)
-          })
-
-      })
+            setGithubUser(ghData);
+            setLoading(false);
+          });
+      });
   }, [])
 
   if (isLoading) return <ClipLoader css={override} loading={isLoading} size={150} />
-
   if (!githubUser) return <p>No User data</p>
 
-  console.log(githubUser);
   return (
     <>
       <Head>
@@ -62,7 +57,6 @@ export default function Home() {
           {activeTab === 'overview' &&
             <>
               <div className="card">
-
                 <h2>About</h2>
                 <p>{githubUser.bio}</p>
               </div>
@@ -70,7 +64,6 @@ export default function Home() {
           {activeTab === 'repolist' &&
             <RepoList username={githubUser.login} />
           }
-
         </div>
       </div>
     </>
